@@ -1,0 +1,35 @@
+.main-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.title {
+  margin-left: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.icon1 {
+  display: inline-flex;
+  margin-left: 1045px;
+  margin-top: 7px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.icon2 {
+  display: inline-flex;
+  font-size: 24px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.wrapper {
+  border-radius: 50px;
+  background-color: orange;
+  padding-top: 7px;
+  padding-left: 2px;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  margin-right: 50px;
+}

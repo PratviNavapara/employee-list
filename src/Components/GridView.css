@@ -1,0 +1,38 @@
+.display {
+  margin: 40px auto;
+  box-sizing: border-box;
+  grid-column-gap: 20px;
+  grid-row-gap: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.personalblock {
+  margin: auto;
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+
+  background-color: rgb(219, 215, 215);
+}
+
+.imageblock {
+  padding-top: 10px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.nameblock {
+  padding-top: 10px;
+  font-weight: bold;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+.roleblock {
+  padding-top: 10px;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
