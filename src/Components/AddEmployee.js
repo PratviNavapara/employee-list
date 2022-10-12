@@ -8,36 +8,22 @@ const AddEmployee = ({
   hideAddemployeeForm,
   displayRandomImages,
   handleId,
+  currentUser,
+  user,
+  employeeList,
   ...props
 }) => {
   const [employee, setEmployee] = useState({
-    id: handleId(),
-    firstname: "",
-    lastname: "",
-    username: "",
+    id: currentUser?.id ?? "",
     image: displayRandomImages(),
-    employeeid: "",
-    email: "",
-    phone: "",
-    joindate: "",
+    name: currentUser?.name ?? "",
+    mobile: currentUser?.mobile ?? "",
+    username: currentUser?.username ?? "",
+    employeeid: currentUser?.employeeid ?? "",
+    email: currentUser?.email ?? "",
+    joindate: currentUser?.joindate ?? "",
+    role: currentUser?.role ?? "",
   });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    hideAddemployeeForm(true);
-    handleGetData(employee);
-    setEmployee({
-      id: "",
-      firstname: "",
-      lastname: "",
-      username: "",
-      image: "",
-      employeeid: "",
-      email: "",
-      phone: "",
-      joindate: "",
-    });
-  };
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -45,11 +31,28 @@ const AddEmployee = ({
     setEmployee({ ...employee, [name]: value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    hideAddemployeeForm(true);
+    handleGetData(employee);
+    setEmployee({
+      name: "",
+      lastname: "",
+      username: "",
+      image: "",
+      employeeid: "",
+      email: "",
+      mobile: "",
+      joindate: "",
+      role: "",
+    });
+  };
+
   return (
     <Fragment>
       <div className="form-wrapper">
         <div className="formbox">
-          <div className="heading">Add Employee </div>
+          <div className="heading">Employee Data </div>
           <span className="close-icon">
             <FontAwesomeIcon icon={faClose} onClick={hideAddemployeeForm} />
           </span>
@@ -57,13 +60,13 @@ const AddEmployee = ({
           <form onSubmit={handleSubmit}>
             <div className="field">
               <label>
-                First Name <span>*</span>
+                Name <span>*</span>
               </label>
               <input
                 type="text"
-                name="firstname"
-                value={employee.firstname}
-                id="firstname"
+                name="name"
+                value={employee.name}
+                id="name"
                 pattern="[A-Za-z]+"
                 placeholder="John"
                 onChange={handleInput}
@@ -142,14 +145,17 @@ const AddEmployee = ({
             </div>
             <br />
             <div className="field">
-              <label>Phone</label>
+              <label>
+                Phone<span>*</span>
+              </label>
               <input
                 type="tel"
-                name="phone"
-                value={employee.phone}
+                name="mobile"
+                value={employee.mobile}
                 onChange={handleInput}
-                id="phone"
+                id="mobile"
                 maxLength="10"
+                required
               />
             </div>
             <div className="field">

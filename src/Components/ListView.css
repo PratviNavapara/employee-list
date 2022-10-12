@@ -25,16 +25,67 @@ thead {
   background-color: white;
   font-weight: bold;
 }
+td {
+  position: relative;
+}
 
 th {
   color: black;
 }
-/* tr{
-  height: 50px;
-} */
 
 img {
   border-radius: 25px;
   width: 50px;
   height: 50px;
+}
+
+.fa-ellipsis-v {
+  cursor: pointer;
+}
+.edit-icon {
+  position: absolute;
+ 
+}
+.dropdwn-menu {
+  position: absolute;
+  width: 90px;
+  background-color: rgb(215, 209, 209);
+  right: 104px;
+  top: 8px;
+  height: 50px;
+}
+
+.dropdwn-option {
+  color: black;
+}
+.dropdwn-option-delete {
+  color: red;
+}
+
+.dropdwn-option-delete:hover {
+  background-color: rgb(255, 255, 255);
+}
+.dropdwn-option:hover {
+  background-color: rgb(255, 255, 255);
+}
+.icon {
+  color: black;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+.icon-delete {
+  color: red;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+.user-name{
+  
+  position: absolute;
+  top:22px;
+  left:62px;
+  color: black;
+}
+
+.user-img{
+  position: relative;
 }

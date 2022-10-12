@@ -7,10 +7,18 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.editicon {
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-top: 7px;
+  padding-right: 30px;
+}
 .personalblock {
   margin: auto;
   width: 300px;
-  height: 150px;
+  height: 190px;
   border-radius: 10px;
 
   background-color: rgb(219, 215, 215);
@@ -35,4 +43,50 @@
   display: flex;
   margin: auto;
   justify-content: center;
+}
+.fa-ellipsis-v {
+  cursor: pointer;
+}
+.dropdown-menu {
+  position: absolute;
+  width: 90px;
+  right: 4px;
+  top: 5px;
+  background-color: rgb(200, 193, 193);
+  
+  height: max-content;
+
+}
+
+.dropdown-option {
+  color: black;
+}
+
+.dropdown-option:hover {
+  background-color: rgb(255, 255, 255);
+}
+.dropdown-option-del {
+  color: red;
+}
+
+.dropdown-option-del:hover {
+  background-color: rgb(255, 255, 255);
+}
+.icons {
+  color: black;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+
+.icons-del {
+  color: red;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+.edit-icons {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  right: 27px;
+  top:10px;  
 }
