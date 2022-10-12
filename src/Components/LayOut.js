@@ -51,13 +51,12 @@ const sampleData = [
     role: "Web Developer",
   },
 ];
-let employees_records;
-
 const LayOut = () => {
   const navigate = useNavigate();
   const [employees, setEmployees] = useState(sampleData);
   const [viewType, setViewType] = useState("list");
   const [isFormDisplay, setIsFormDisplay] = useState(false);
+
   const initialUser = {
     id: "",
     name: "",
@@ -71,7 +70,6 @@ const LayOut = () => {
     role: "",
   };
   const [currentUser, setCurrentUser] = useState(initialUser);
-let allEmployees=employees;
   const handleEditUserData = (userItem) => {
     const employeeList = employees.map((user) => {
       if (userItem?.id === user.id) {
@@ -81,11 +79,15 @@ let allEmployees=employees;
     });
     setEmployees(employeeList);
   };
+
+  useEffect(() => {
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }, [employees]);
   const handleGetData = (newRecord) => {
     if (newRecord?.id !== "") {
       handleEditUserData(newRecord);
     } else {
-      allEmployees.push({
+      employees.push({
         id: handleId(),
         image: newRecord.image,
         name: newRecord.name,
@@ -97,19 +99,9 @@ let allEmployees=employees;
       });
     }
 
-    // employees_records.push({
-    //   ...sampleData,
-    //   id: handlecurrentUserId(),
-    //   image: newRecord.image,
-    //   name: newRecord.name,
-    //   employeeid: newRecord.employeeid,
-    //   email: newRecord.email,
-    //   mobile: newRecord.mobile,
-    //   joindate: newRecord.joindate,
-    //   role: newRecord.designation,
-    // });
-    localStorage.setItem("employees", JSON.stringify(allEmployees));
+    localStorage.setItem("employees", JSON.stringify(employees));
   };
+
   const handlecurrentUserId = (id) => {
     const curEmployee = employees.find((emp) => emp.id === id);
     setCurrentUser(curEmployee);
@@ -118,9 +110,7 @@ let allEmployees=employees;
   const editDataFunction = (id) => {
     setIsFormDisplay(true);
   };
-  // employees_records = JSON.parse(localStorage.getItem("employees"))
-  //   ? JSON.parse(localStorage.getItem("employees"))
-  //   : [];
+
   const deleteData = (id) => {
     const filteredData = employees.filter((element) => {
       return element.id !== id;
